@@ -12,11 +12,11 @@ export class LakeTreeRadioButtons extends LitElement {
 
   static getMetaConfig() {
     return {
-      controlName: 'LakeTree Radio Buttons22',
+      controlName: 'LakeTree Radio Buttons233',
       iconUrl: "https://laketree.com/wp-content/themes/laketree/img/favicon/favicon-32x32.png",
       groupName : 'LakeTree',
       fallbackDisableSubmit: false,
-      version: '2.0',
+      version: '3.0',
       standardProperties : {
         description: true,
         defaultValue: true,
@@ -92,5 +92,5 @@ const uniqueOptions = optionsArray.filter((item, index) => optionsArray.indexOf(
 }
 
 
-const elementName = 'laketree-radios';
+const elementName = 'laketree-radioszx';
 customElements.define(elementName, LakeTreeRadioButtons);
