@@ -1,7 +1,66 @@
 
 import { html,css, LitElement} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 
-export class LakeTreeRadioButtons extends LitElement {
+export class uniqueRadioButtons extends LitElement {
+
+  static styles = css` 
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  body { 
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .lt-radio-buttons-wrapper {
+    clear: both;
+    display: inline-block;
+  }
+  
+  .lt-radio-button {
+    position: absolute;
+    left: -9999em;
+    top: -9999em;
+    cursor: pointer;
+    
+    & + label {
+      float: left;
+      padding: .5em 1em;
+      cursor: pointer;
+      border: 1px solid var(--ntx-form-theme-color-border);
+      margin-right: -1px;
+      color: var(--ntx-form-theme-color-primary);
+      background-color: var(--ntx-form-theme-color-form-background);
+                                        
+      &:first-of-type {
+        border-radius: .7em 0 0 .7em;
+      }
+      
+      &:last-of-type {
+        border-radius: 0 .7em .7em 0;
+      }
+    }
+    
+    &:checked + label {
+      background-color: var(--ntx-form-theme-color-primary);
+      color: var(--ntx-form-theme-color-form-background);
+    }
+
+    &:hover + label {
+        background-color: var(--ntx-form-theme-color-primary);
+        color: var(--ntx-form-theme-color-form-background);
+        opacity: 0.8;
+    }
+  }
+
+  
   `
   static properties = {
     title: {type: String },
@@ -12,11 +71,11 @@ export class LakeTreeRadioButtons extends LitElement {
 
   static getMetaConfig() {
     return {
-      controlName: 'LakeTree Radio Buttons233',
+      controlName: 'Unique Radio Buttons',
       iconUrl: "https://laketree.com/wp-content/themes/laketree/img/favicon/favicon-32x32.png",
       groupName : 'LakeTree',
       fallbackDisableSubmit: false,
-      version: '3.0',
+      version: '2.0',
       standardProperties : {
         description: true,
         defaultValue: true,
@@ -78,9 +137,9 @@ const uniqueOptions = optionsArray.filter((item, index) => optionsArray.indexOf(
 }));
             return html`
 
-                    <div class="lt-radio-buttons-wrapper" style="${this._disabledStyle}">
+                    <div class="lt-radio-buttons-wrapperz" style="${this._disabledStyle}">
                         ${this._arrOptions.map((opt) => html`
-                            <input type="radio"  name="radioButtonTest" value="${opt.value}" id="${opt.id}" ?checked=${opt.checked} /><label @click=${this.optionClicked} for="${opt.id}">${opt.value}</label>
+                            <input type="radio" class="lt-radio-buttonz" name="radioButtonTest" value="${opt.value}" id="${opt.id}" ?checked=${opt.checked} /><label @click=${this.optionClicked} for="${opt.id}">${opt.value}</label>
                         `)}
 
                     </div>
@@ -92,5 +151,5 @@ const uniqueOptions = optionsArray.filter((item, index) => optionsArray.indexOf(
 }
 
 
-const elementName = 'laketree-radioszx';
-customElements.define(elementName, LakeTreeRadioButtons);
+const elementName = 'unique-options';
+customElements.define(elementName, uniqueRadioButtons);
